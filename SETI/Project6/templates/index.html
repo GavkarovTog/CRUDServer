@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="createCity" method="POST">
+        <h3>Добавить в таблицу город</h3>
+        {% csrf_token %}
+        <div>
+            <label for="name">Введите название <input type="text" name="name"></label>
+            
+        </div>
+        <div>
+            <label for="country">Введите страну<input type="text" name="country"></label>
+            
+        </div>
+        <div>
+            <label for="square">Введите площадь<input type="text" name="square"></label>
+            
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+    <table border="1" style="text-align: center">
+        <thead><th>ID</th><th>Название</th><th>Страна</th><th>Площадь</th></thead>
+        {% for value in city %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.name }}</td>
+            <td>{{ value.country }}</td>
+            <td>{{ value.square }}</td>
+            <td><a href="updateCity/{{value.id}}">Изменить</a> | <a href="deleteCity/{{value.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="createReligion" method="POST">
+        <h3>Добавить в таблицу религию</h3>
+        {% csrf_token %}
+        <div>
+            <label for="name">Введите название <input type="text" name="name"></label>
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+    <table border="1" style="text-align: center">
+        <thead><th>ID</th><th>Название</th></thead>
+        {% for value in religion %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.name }}</td>
+            <td><a href="updateReligion/{{value.id}}">Изменить</a> | <a href="deleteReligion/{{value.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="createFirm" method="POST">
+        <h3>Добавить в таблицу фирму</h3>
+        {% csrf_token %}
+        <div>
+            <label for="name">Введите название <input type="text" name="name"></label>
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+    <table border="1" style="text-align: center">
+        <thead><th>ID</th><th>Название</th></thead>
+        {% for value in firm %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.name }}</td>
+            <td>{{ value.income }}</td>
+            <td><a href="updateFirm/{{value.id}}">Изменить</a> | <a href="deleteFirm/{{value.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="createHuman" method="POST">
+        <h3>Добавить в таблицу человека</h3>
+        {% csrf_token %}
+        <div>
+            <label for="name">Введите название <input type="text" name="name"></label>
+            
+        </div>
+        <div>
+            <label for="age">Введите возраст<input type="text" name="age"></label>
+            
+        </div>
+        <div>
+            <label for="nationality">Введите национальность<input type="text" name="nationality"></label>
+            
+        </div>
+        <div>
+            <label for="job">Введите работу<input type="text" name="job"></label>
+            
+        </div>
+        <div>
+            <label for="city">Введите город<input type="text" name="city"></label>
+            
+        </div>
+        <div>
+            <label for="religion">Введите религию<input type="text" name="religion"></label>
+            
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+    <table border="1" style="text-align: center">
+        <thead><th>ID</th><th>Название</th></thead>
+        {% for value in human %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.name }}</td>
+            <td>{{ value.age }}</td>
+            <td>{{ value.nationality }}</td>
+            <td>{{ value.job.name }}</td>
+            <td>{{ value.city.name }}</td>
+            <td>{{ value.religion.name }}</td>
+            <td><a href="updateHuman/{{value.id}}">Изменить</a> | <a href="deleteHuman/{{value.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

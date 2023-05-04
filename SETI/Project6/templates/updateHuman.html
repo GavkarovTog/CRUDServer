@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <h3>Изменить таблицу город</h3>
+        {% csrf_token %}
+        <div>
+            <label for="name">Введите название <input type="text" name="name" value="{{human.name}}"></label>
+            
+        </div>
+        <div>
+            <label for="age">Введите возраст<input type="text" name="age" value="{{human.age}}"></label>
+            
+        </div>
+        <div>
+            <label for="nationality">Введите национальность<input type="text" name="nationality" value="{{human.nationality}}"></label>
+            
+        </div>
+        <div>
+            <label for="job">Введите работу<input type="text" name="job" value="{{human.job.name}}"></label>
+            
+        </div>
+        <div>
+            <label for="city">Введите город<input type="text" name="city" value="{{human.city.name}}"></label>
+            
+        </div>
+        <div>
+            <label for="religion">Введите религию<input type="text" name="religion" value="{{human.religion.name}}"></label>
+            
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

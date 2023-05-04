@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <h3>Изменить таблицу фирмы</h3>
+        {% csrf_token %}
+        <div>
+            <label for="name">Введите название <input type="text" name="name" value="{{firm.name}}"></label>
+        </div>
+        <div>
+            <label for="income">Введите страну<input type="text" name="income" value="{{firm.income}}"></label>
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
